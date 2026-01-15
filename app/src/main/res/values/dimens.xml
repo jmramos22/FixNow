@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="espacio_XXS">2dp</dimen>
+    <dimen name="espacio_XS">4dp</dimen>
+    <dimen name="espacio_S">8dp</dimen>
+    <dimen name="espacio_SM">12dp</dimen>
+    <dimen name="espacio_M">16dp</dimen>
+    <dimen name="espacio_ML">20dp</dimen>
+    <dimen name="espacio_L">24dp</dimen>
+    <dimen name="espacio_XL">32dp</dimen>
+    <dimen name="espacio_XXL">40dp</dimen>
+
+    <dimen name="font_xs">10sp</dimen>
+    <dimen name="font_tag">12sp</dimen>
+    <dimen name="font_caption">13sp</dimen>
+    <dimen name="font_subtitulo">14sp</dimen>
+    <dimen name="font_body">15sp</dimen>
+    <dimen name="font_btn">16sp</dimen>
+    <dimen name="font_btn_large">18sp</dimen>
+    <dimen name="font_section">18sp</dimen>
+    <dimen name="font_h3">20sp</dimen>
+    <dimen name="font_h2">22sp</dimen>
+    <dimen name="font_h1">24sp</dimen>
+    <dimen name="font_display">28sp</dimen>
+    <dimen name="font_display_xl">48sp</dimen>
+
+    <dimen name="btn_h_std">60dp</dimen>
+    <dimen name="btn_h_big">80dp</dimen>
+    <dimen name="btn_h_tall">65dp</dimen>
+    <dimen name="btn_radio">30dp</dimen>
+    <dimen name="btn_radio_rect">8dp</dimen>
+    <dimen name="btn_elev">4dp</dimen>
+    <dimen name="btn_stroke">1dp</dimen>
+    <dimen name="btn_stroke_thick">2dp</dimen>
+
+    <dimen name="card_radio_small">12dp</dimen>
+    <dimen name="card_radio">16dp</dimen>
+    <dimen name="card_elev_low">3dp</dimen>
+    <dimen name="card_elev">6dp</dimen>
+    <dimen name="tag_radio">8dp</dimen>
+    <dimen name="radius_circle_l">20dp</dimen>
+    <dimen name="radius_circle_xl">25dp</dimen>
+    <dimen name="profile_l">80dp</dimen> <dimen name="profile_rad_l">40dp</dimen>
+
+    <dimen name="header_h_xs">100dp</dimen>
+    <dimen name="header_h_small">120dp</dimen>
+    <dimen name="header_h_std">140dp</dimen>
+    <dimen name="header_h_large">160dp</dimen>
+    <dimen name="header_h_xl">200dp</dimen>
+    <dimen name="header_h_xxl">220dp</dimen>
+    <dimen name="img_header_h">250dp</dimen>
+
+    <dimen name="icon_XS">20dp</dimen>
+    <dimen name="icon_S">24dp</dimen>
+    <dimen name="icon_M">28dp</dimen>
+    <dimen name="icon_L">40dp</dimen>
+    <dimen name="icon_XL">50dp</dimen>
+    <dimen name="icon_empty">80dp</dimen>
+
+    <dimen name="input_h_multiline">120dp</dimen>
+    <dimen name="oferta_pad_tag_h">10dp</dimen>
+    <dimen name="oferta_pad_tag_v">4dp</dimen>
+    <dimen name="tag_pad_vert">6dp</dimen>
+    <dimen name="pad_bot_fab_avoid">80dp</dimen>
+
+    <item name="lista_alpha_icon" type="dimen" format="float">0.3</item>
+</resources>

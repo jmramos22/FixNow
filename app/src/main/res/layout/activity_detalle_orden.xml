@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app">
+
+    <View
+        android:id="@+id/viewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_h_std"
+        android:background="@color/brand_azul"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHeaderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/orden_titulo"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_h2"
+        android:layout_marginTop="@dimen/espacio_L"
+        android:layout_marginStart="@dimen/espacio_L"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/espacio_M"
+        android:layout_marginTop="@dimen/espacio_L"
+        app:cardCornerRadius="@dimen/card_radio"
+        app:cardElevation="@dimen/card_elev"
+        app:cardBackgroundColor="@color/bg_card"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/espacio_L">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/tag_radio"
+                app:cardBackgroundColor="@color/bg_azul_claro"
+                app:cardElevation="0dp"
+                android:layout_marginBottom="@dimen/espacio_M">
+
+                <TextView
+                    android:id="@+id/tvDetalleTipo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/espacio_S"
+                    android:paddingVertical="6dp"
+                    android:textColor="@color/brand_azul"
+                    android:textSize="@dimen/font_tag"
+                    android:textStyle="bold"
+                    android:text="@string/tag_domicilio" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvDetalleTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_h1"
+                android:textStyle="bold"
+                android:textColor="@color/txt_titulo"
+                android:layout_marginBottom="@dimen/espacio_S"
+                tools:text="Puerta rota" />
+
+            <TextView
+                android:id="@+id/tvDetalleDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_body"
+                android:textColor="@color/txt_cuerpo"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="@dimen/espacio_L"
+                tools:text="La puerta está rota..." />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_divider"
+                android:layout_marginBottom="@dimen/espacio_M"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/espacio_S">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_S"
+                    android:layout_height="@dimen/icon_S"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/brand_naranja"
+                    android:layout_marginEnd="@dimen/espacio_S"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/orden_label_solicitado"
+                        android:textSize="@dimen/font_tag"
+                        android:textColor="@color/txt_hint"/>
+
+                    <TextView
+                        android:id="@+id/tvDetalleCliente"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_body"
+                        android:textColor="@color/txt_titulo"
+                        android:textStyle="bold"
+                        tools:text="Basurto Díaz" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_S"
+                    android:layout_height="@dimen/icon_S"
+                    android:src="@android:drawable/ic_dialog_map"
+                    app:tint="@color/brand_azul"
+                    android:layout_marginEnd="@dimen/espacio_S"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/orden_label_ubicacion"
+                        android:textSize="@dimen/font_tag"
+                        android:textColor="@color/txt_hint"/>
+
+                    <TextView
+                        android:id="@+id/tvDetalleDireccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_body"
+                        android:textColor="@color/txt_detalle"
+                        tools:text="San David 435..." />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFinalizarOrden"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_h_std"
+        android:layout_margin="@dimen/espacio_L"
+        android:text="@string/orden_btn_finalizar"
+        android:textSize="@dimen/font_btn"
+        android:textStyle="bold"
+        app:backgroundTint="#43A047"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/btn_radio"
+        app:elevation="@dimen/btn_elev"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

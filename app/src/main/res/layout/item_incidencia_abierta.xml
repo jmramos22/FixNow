@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/espacio_SM"
+    android:layout_marginHorizontal="@dimen/espacio_XS"
+    app:cardCornerRadius="@dimen/card_radio_small"
+    app:cardElevation="@dimen/btn_elev"
+    app:cardBackgroundColor="@color/bg_card">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/espacio_M">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardIcon"
+            android:layout_width="@dimen/icon_XL"
+            android:layout_height="@dimen/icon_XL"
+            app:cardCornerRadius="@dimen/radius_circle_xl"
+            app:cardBackgroundColor="@color/bg_azul_claro"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgCategoria"
+                android:layout_width="@dimen/icon_S"
+                android:layout_height="@dimen/icon_S"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_fixnow"
+                app:tint="@color/brand_azul"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/item_abierta_titulo_ejemplo"
+            android:textSize="@dimen/font_btn"
+            android:textStyle="bold"
+            android:textColor="@color/txt_titulo"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginStart="@dimen/espacio_M"
+            android:layout_marginEnd="@dimen/espacio_S"
+            app:layout_constraintStart_toEndOf="@+id/cardIcon"
+            app:layout_constraintTop_toTopOf="@+id/cardIcon"
+            app:layout_constraintEnd_toStartOf="@+id/tvBadgeNueva"/>
+
+        <TextView
+            android:id="@+id/tvCliente"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/item_abierta_cliente_ejemplo"
+            android:textSize="@dimen/font_caption"
+            android:textColor="@color/txt_cuerpo"
+            android:layout_marginStart="@dimen/espacio_M"
+            android:layout_marginTop="@dimen/espacio_XS"
+            app:layout_constraintStart_toEndOf="@+id/cardIcon"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvBadgeNueva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tag_disponible"
+            android:textSize="@dimen/font_xs"
+            android:textStyle="bold"
+            android:textColor="@color/estado_verde_txt"
+            android:background="@color/estado_verde_bg"
+            android:paddingHorizontal="@dimen/espacio_S"
+            android:paddingVertical="@dimen/espacio_XXS"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_divider"
+            android:layout_marginTop="@dimen/espacio_SM"
+            app:layout_constraintTop_toBottomOf="@+id/cardIcon"/>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_ver_detalles"
+            android:textColor="@color/brand_naranja"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_caption"
+            android:layout_marginTop="@dimen/espacio_SM"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

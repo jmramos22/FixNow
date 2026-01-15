@@ -1,0 +1,116 @@
+<resources>
+    <string name="app_name">FiwNow</string>
+
+    <string name="btn_enviar">Enviar</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_ver_detalles">VER DETALLES</string>
+    <string name="btn_gestionar_orden">GESTIONAR ORDEN</string>
+    <string name="tag_domicilio">En domicilio</string>
+    <string name="tag_carretera">Carretera</string>
+    <string name="tag_proceso">En proceso</string>
+    <string name="tag_abierta">Abierta</string>
+    <string name="tag_disponible">Disponible</string>
+    <string name="tag_estado_label">Estado</string>
+
+    <string name="item_titulo_ejemplo">Puerta rota</string>
+    <string name="item_fecha_ejemplo">Hace un momento</string>
+    <string name="item_abierta_titulo_ejemplo">Fuga de agua en baño</string>
+    <string name="item_abierta_cliente_ejemplo">Cliente: Maria López</string>
+    <string name="item_oferta_nombre">Juan Pérez</string>
+    <string name="item_oferta_mensaje">Puedo ir mañana mismo...</string>
+    <string name="item_oferta_rating">★ 4.8</string>
+    <string name="item_orden_desc_ejemplo">Reparación de puerta</string>
+
+    <string name="main_sol_bienvenida">Bienvenido,</string>
+    <string name="main_sol_nombre_demo">Solucionador #1234</string>
+    <string name="main_sol_menu_titulo">Menú Principal</string>
+    <string name="main_sol_btn_buscar">Buscar Nuevas Incidencias</string>
+    <string name="main_sol_btn_ordenes">Mis Ordenes de Trabajo</string>
+    <string name="main_sol_btn_cerrar">Cerrar Sesión</string>
+
+    <string name="lista_titulo">Incidencias Abiertas</string>
+    <string name="lista_subtitulo">Encuentra tu próximo trabajo</string>
+    <string name="lista_msg_vacio">No hay incidencias disponibles</string>
+
+    <string name="oferta_titulo">Enviar Propuesta</string>
+    <string name="oferta_subtitulo">Describe tu solución al cliente</string>
+    <string name="oferta_titulo_ejemplo">Puerta rota</string>
+    <string name="oferta_desc_ejemplo">La puerta está rota, alguien repárela</string>
+    <string name="oferta_dir_ejemplo">Dirección: San David 435...\nAbierto por: Basurto Pérez</string>
+    <string name="oferta_label_propuesta">Tu Propuesta / Mensaje</string>
+    <string name="oferta_hint_propuesta">Escribe detalles, precio estimado, etc.</string>
+    <string name="oferta_btn_enviar">Enviar Oferta</string>
+
+    <string name="orden_titulo">Detalle del Trabajo</string>
+    <string name="orden_label_solicitado">Solicitado por:</string>
+    <string name="orden_label_ubicacion">Ubicación:</string>
+    <string name="orden_btn_finalizar">Finalizar Orden</string>
+
+    <string name="proceso_titulo_header">Estado del Servicio</string>
+    <string name="proceso_label_tecnico">Técnico asignado</string>
+    <string name="proceso_placeholder_tecnico">Cargando técnico...</string>
+    <string name="proceso_label_tu_calificacion">Tu calificación:</string>
+    <string name="proceso_btn_calificar">Calificar Servicio</string>
+    <string name="proceso_direccion">Dirección: San David 435...</string>
+
+    <string name="calif_titulo">Finalizar Servicio</string>
+    <string name="calif_pregunta">¿Qué tal fue el servicio de?</string>
+    <string name="calif_nombre_demo">Juan Pérez</string>
+    <string name="calif_btn_enviar">Enviar Calificación</string>
+
+    <string name="ordenes_titulo">Mis Órdenes de Trabajo</string>
+    <string name="ordenes_subtitulo">Gestiona tus servicios activos</string>
+    <string name="ordenes_msg_vacio">No tienes órdenes asignadas</string>
+
+    <string name="solicitud_titulo">Detalle de Solicitud</string>
+    <string name="solicitud_label_desc">Descripción</string>
+    <string name="solicitud_label_propuestas">Propuestas recibidas</string>
+    <string name="solicitud_desc_larga_ejemplo">La puerta está rota, necesito que alguien la repare de inmediato por favor.</string>
+    <string name="solicitud_direccion_full">San David 5398, La Libertad 3da secc, 80020 Culiacán Sinaloa</string>
+
+    <string name="mis_incidencias_titulo">Mis Incidencias</string>
+
+    <string name="login_cli_titulo">Bienvenido Cliente</string>
+    <string name="login_cli_subtitulo">Inicia sesión para continuar</string>
+    <string name="login_cli_hint_email">Correo Electrónico</string>
+    <string name="login_cli_hint_pass">Contraseña</string>
+    <string name="login_cli_btn_login">Iniciar Sesión</string>
+    <string name="login_cli_label_no_account">¿No tienes cuenta?</string>
+    <string name="login_cli_btn_register">Crear cuenta nueva</string>
+
+    <string name="login_sol_titulo">Bienvenido Solucionador</string>
+    <string name="login_sol_subtitulo">Gestiona tus trabajos y conecta</string>
+    <string name="login_sol_btn_login">Iniciar Sesión</string>
+    <string name="login_sol_label_register">¿Quieres trabajar con nosotros?</string>
+    <string name="login_sol_btn_register">Crear cuenta de Solucionador</string>
+
+    <string name="inicio_titulo_brand">FixNow</string>
+    <string name="inicio_slogan">Soluciones rápidas, al instante.</string>
+    <string name="inicio_btn_cliente">Soy Cliente</string>
+    <string name="inicio_btn_solucionador">Soy Solucionador</string>
+
+    <string name="reg_cli_titulo">Crear Cuenta</string>
+    <string name="reg_cli_subtitulo">Completa tus datos para comenzar</string>
+    <string name="reg_cli_hint_nombre">Nombre(s)</string>
+    <string name="reg_cli_hint_paterno">Apellido Paterno</string>
+    <string name="reg_cli_hint_materno">Apellido Materno</string>
+    <string name="reg_cli_hint_confirm_pass">Confirmar Contraseña</string>
+    <string name="reg_cli_btn_registro">Registrarme</string>
+
+    <string name="nueva_incidencia_titulo">Nueva Incidencia</string>
+    <string name="nueva_incidencia_subtitulo">Describe el problema detalladamente</string>
+    <string name="nueva_incidencia_hint_titulo">Título del Problema</string>
+    <string name="nueva_incidencia_hint_desc">Descripción detallada</string>
+    <string name="nueva_incidencia_label_ubicacion">Ubicación del problema</string>
+    <string name="nueva_incidencia_hint_direccion">Dirección / Ubicación</string>
+    <string name="nueva_incidencia_btn_enviar">Enviar Solicitud</string>
+
+    <string name="reg_sol_subtitulo">Regístrate como Solucionador</string>
+
+    <string name="revisar_titulo">Revisar Oferta</string>
+    <string name="revisar_nombre_ejemplo">Juan Perez Lopez</string>
+    <string name="revisar_label_mensaje">Mensaje y Cotización:</string>
+    <string name="revisar_mensaje_ejemplo">Hola, yo te arreglo la puerta por $500. Puedo ir hoy mismo por la tarde.</string>
+    <string name="revisar_btn_aceptar">Aceptar Oferta</string>
+    <string name="revisar_btn_rechazar">Rechazar</string>
+</resources>

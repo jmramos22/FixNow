@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app">
+
+    <View
+        android:id="@+id/viewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_h_xs"
+        android:background="@color/brand_azul"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mis_incidencias_titulo"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_h1"
+        android:layout_marginStart="@dimen/espacio_L"
+        android:layout_marginBottom="@dimen/espacio_ML"
+        app:layout_constraintBottom_toBottomOf="@+id/viewHeader"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvIncidencias"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="@dimen/espacio_SM"
+        android:paddingTop="@dimen/espacio_M"
+        android:paddingBottom="@dimen/pad_bot_fab_avoid"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@+id/viewHeader"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_incidencia" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAgregarIncidencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/espacio_L"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/brand_naranja"
+        app:tint="@color/white"
+        app:elevation="@dimen/card_elev"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

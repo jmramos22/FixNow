@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/espacio_SM"
+    android:layout_marginHorizontal="@dimen/espacio_XS"
+    app:cardCornerRadius="@dimen/card_radio_small"
+    app:cardElevation="@dimen/card_elev_low"
+    app:cardBackgroundColor="@color/bg_card">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/espacio_M">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAvatar"
+            android:layout_width="@dimen/icon_L"
+            android:layout_height="@dimen/icon_L"
+            app:cardCornerRadius="@dimen/radius_circle_l"
+            app:cardBackgroundColor="@color/bg_azul_claro"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/icon_S"
+                android:layout_height="@dimen/icon_S"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person"
+                app:tint="@color/brand_azul"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvNombreOferta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/item_oferta_nombre"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_btn"
+            android:textColor="@color/txt_titulo"
+            android:layout_marginStart="@dimen/espacio_SM"
+            android:layout_marginEnd="@dimen/espacio_S"
+            app:layout_constraintStart_toEndOf="@+id/cardAvatar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvCalificacionOferta"
+            app:layout_constraintBottom_toTopOf="@+id/tvMensajeOferta"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+        <TextView
+            android:id="@+id/tvMensajeOferta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/item_oferta_mensaje"
+            android:textSize="@dimen/font_subtitulo"
+            android:textColor="@color/txt_hint"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/espacio_XXS"
+            android:layout_marginStart="@dimen/espacio_SM"
+            app:layout_constraintStart_toEndOf="@+id/cardAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/tvNombreOferta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvCalificacionOferta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_oferta_rating"
+            android:textStyle="bold"
+            android:textColor="@color/brand_naranja"
+            android:textSize="@dimen/font_subtitulo"
+            android:background="@color/bg_rating_pale"
+            android:paddingHorizontal="@dimen/espacio_S"
+            android:paddingVertical="@dimen/espacio_XXS"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

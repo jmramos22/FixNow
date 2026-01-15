@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app">
+
+    <View
+        android:id="@+id/viewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_h_large"
+        android:background="@color/brand_azul"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvScreenTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/oferta_titulo"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_h1"
+        android:layout_marginTop="@dimen/espacio_XL"
+        android:layout_marginStart="@dimen/espacio_L"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvScreenSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/oferta_subtitulo"
+        android:textColor="@color/txt_azul_claro"
+        android:textSize="@dimen/font_subtitulo"
+        app:layout_constraintStart_toStartOf="@+id/tvScreenTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvScreenTitle" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/espacio_M"
+        android:layout_marginTop="@dimen/espacio_L"
+        app:cardCornerRadius="@dimen/card_radio"
+        app:cardElevation="@dimen/card_elev"
+        app:cardBackgroundColor="@color/bg_card"
+        app:layout_constraintTop_toBottomOf="@+id/tvScreenSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/espacio_L">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/tag_radio"
+                app:cardBackgroundColor="@color/bg_azul_claro"
+                app:cardElevation="0dp"
+                android:layout_marginBottom="@dimen/espacio_M">
+
+                <TextView
+                    android:id="@+id/tvTipo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_domicilio"
+                    android:textColor="@color/brand_azul"
+                    android:textSize="@dimen/font_tag"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="@dimen/espacio_S"
+                    android:paddingVertical="@dimen/espacio_XS"/>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/oferta_titulo_ejemplo"
+                android:textSize="@dimen/font_h2"
+                android:textStyle="bold"
+                android:textColor="@color/txt_titulo"
+                android:layout_marginBottom="@dimen/espacio_S"/>
+
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/oferta_desc_ejemplo"
+                android:textSize="@dimen/font_body"
+                android:textColor="@color/txt_cuerpo"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="@dimen/espacio_M"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/espacio_L">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_S"
+                    android:layout_height="@dimen/icon_S"
+                    android:src="@android:drawable/ic_dialog_map"
+                    app:tint="@color/brand_azul"
+                    android:layout_marginEnd="@dimen/espacio_S"
+                    android:layout_marginTop="2dp"/>
+
+                <TextView
+                    android:id="@+id/tvDireccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/oferta_dir_ejemplo"
+                    android:textSize="@dimen/font_caption"
+                    android:textColor="@color/txt_detalle"
+                    android:lineSpacingExtra="2dp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_divider"
+                android:layout_marginBottom="@dimen/espacio_M"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/oferta_label_propuesta"
+                android:textStyle="bold"
+                android:textColor="@color/brand_azul"
+                android:layout_marginBottom="@dimen/espacio_S"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/brand_azul"
+                app:hintTextColor="@color/brand_azul"
+                android:hint="@string/oferta_hint_propuesta"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="@dimen/espacio_L">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMensaje"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_h_multiline"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/txt_titulo"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOfertar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_h_std"
+                android:text="@string/oferta_btn_enviar"
+                android:textSize="@dimen/font_btn"
+                android:textStyle="bold"
+                app:backgroundTint="@color/brand_naranja"
+                android:textColor="@color/white"
+                app:cornerRadius="@dimen/btn_radio"
+                app:elevation="@dimen/btn_elev"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
