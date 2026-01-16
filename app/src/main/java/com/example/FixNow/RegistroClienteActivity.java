@@ -44,7 +44,7 @@ public class RegistroClienteActivity extends AppCompatActivity {
             String contrasena = etContrasena.getText().toString().trim();
             String contrasenaConf = etContrasenaConf.getText().toString().trim();
 
-            // --- VALIDACIONES ---
+
             if(nombre.isEmpty() || paterno.isEmpty() || materno.isEmpty() || mail.isEmpty() || contrasena.isEmpty()){
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
                 return;
@@ -56,13 +56,12 @@ public class RegistroClienteActivity extends AppCompatActivity {
                 return;
             }
 
-            // Si todo está bien, guardamos
             saveCliente(nombre, paterno, materno, mail, contrasena);
         });
     }
 
     private void initView() {
-        btnRegitro_Cliente = findViewById(R.id.btnRegistro_Incidencia); // Ojo: tu ID en XML parece de incidencia, pero lo respeto
+        btnRegitro_Cliente = findViewById(R.id.btnRegistro_Incidencia);
         etNombre = findViewById(R.id.edt_Nombre_cliente);
         etPaterno = findViewById(R.id.edt_ApPaterno_cliente);
         etMaterno = findViewById(R.id.edt_ApMaterno_cliente);
@@ -73,11 +72,9 @@ public class RegistroClienteActivity extends AppCompatActivity {
 
     private void saveCliente(String nombre, String paterno, String materno, String mail, String contrasena) {
 
-        // Deshabilitar botón para evitar doble registro
         btnRegitro_Cliente.setEnabled(false);
         btnRegitro_Cliente.setText("Guardando...");
 
-        // 1. Crear el objeto Cliente (Modelo Java)
         Cliente nuevoCliente = new Cliente();
         nuevoCliente.setNombre(nombre);
         nuevoCliente.setApPaterno(paterno);
@@ -85,11 +82,10 @@ public class RegistroClienteActivity extends AppCompatActivity {
         nuevoCliente.setMail(mail);
         nuevoCliente.setContrasena(contrasena);
 
-        // 2. Enviar a la API PHP usando Retrofit
         RetrofitClient.getApiService().registrarCliente(nuevoCliente).enqueue(new Callback<ApiResponse<Void>>() {
             @Override
             public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {
-                // Volver a habilitar el botón
+
                 btnRegitro_Cliente.setEnabled(true);
                 btnRegitro_Cliente.setText("Registrar");
 
@@ -97,26 +93,24 @@ public class RegistroClienteActivity extends AppCompatActivity {
                     ApiResponse<Void> respuesta = response.body();
 
                     if ("success".equals(respuesta.getStatus())) {
-                        // --- ÉXITO ---
                         Toast.makeText(RegistroClienteActivity.this, "¡Registro Exitoso!", Toast.LENGTH_SHORT).show();
 
-                        // Ir al Login para que inicie sesión
                         Intent intent = new Intent(RegistroClienteActivity.this, LoginClienteActivity.class);
                         startActivity(intent);
-                        finish(); // Cerramos registro para que no pueda volver atrás
+                        finish();
                     } else {
-                        // Error lógico (ej. Correo duplicado)
+
                         Toast.makeText(RegistroClienteActivity.this, "Error: " + respuesta.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 } else {
-                    // Error del servidor (500, 404)
+
                     Toast.makeText(RegistroClienteActivity.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ApiResponse<Void>> call, Throwable t) {
-                // Error de conexión
+
                 btnRegitro_Cliente.setEnabled(true);
                 btnRegitro_Cliente.setText("Registrar");
                 Log.e("REGISTRO_ERROR", t.getMessage());

@@ -38,13 +38,13 @@ public class OrdenesTrabajoActivity extends AppCompatActivity implements OrdenTr
 
         cargarIdSolucionador();
 
-        // Vinculamos con tus IDs originales del XML
+
         progressBar = findViewById(R.id.progressBar2);
         recyclerView = findViewById(R.id.rvOrdenesTrabajo);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Inicializamos el Adapter pasando 'this' para escuchar los clicks
+
         adapter = new OrdenTrabajoAdapter(this);
         recyclerView.setAdapter(adapter);
     }
@@ -52,7 +52,7 @@ public class OrdenesTrabajoActivity extends AppCompatActivity implements OrdenTr
     @Override
     protected void onResume() {
         super.onResume();
-        // Recargamos la lista al volver (por si acabas de finalizar una tarea)
+
         if (idSolucionadorActual != -1) {
             cargarOrdenesDeTrabajo();
         }
@@ -73,7 +73,6 @@ public class OrdenesTrabajoActivity extends AppCompatActivity implements OrdenTr
 
         progressBar.setVisibility(View.VISIBLE);
 
-        // Llamada a la API de MySQL
         RetrofitClient.getApiService().listarMisOrdenes(idSolucionadorActual).enqueue(new Callback<ApiResponse<List<OrdenSolucionador>>>() {
             @Override
             public void onResponse(Call<ApiResponse<List<OrdenSolucionador>>> call, Response<ApiResponse<List<OrdenSolucionador>>> response) {
@@ -84,7 +83,7 @@ public class OrdenesTrabajoActivity extends AppCompatActivity implements OrdenTr
 
                     if (lista != null && !lista.isEmpty()) {
                         adapter.setLista(lista);
-                        // Toast.makeText(ordenes_trabajo.this, "Tienes " + lista.size() + " trabajos.", Toast.LENGTH_SHORT).show();
+
                     } else {
                         Toast.makeText(OrdenesTrabajoActivity.this, "No tienes trabajos asignados aún.", Toast.LENGTH_LONG).show();
                     }
@@ -102,7 +101,6 @@ public class OrdenesTrabajoActivity extends AppCompatActivity implements OrdenTr
         });
     }
 
-    // Al hacer click, vamos al detalle NUEVO para poder finalizar el trabajo
     @Override
     public void onItemClick(OrdenSolucionador orden) {
         Intent intent = new Intent(this, DetalleOrdenActivity.class);

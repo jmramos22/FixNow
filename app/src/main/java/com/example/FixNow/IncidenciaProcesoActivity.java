@@ -39,7 +39,7 @@ public class IncidenciaProcesoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_incidencia_en_proceso); // Asegúrate que este sea el nombre de TU XML
+        setContentView(R.layout.activity_incidencia_en_proceso);
 
         idIncidencia = getIntent().getIntExtra("ID_INCIDENCIA", -1);
 
@@ -55,7 +55,7 @@ public class IncidenciaProcesoActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        // Vinculación con los IDs de TU XML
+
         tvTitulo = findViewById(R.id.tvTituloProceso);
         tvDesc = findViewById(R.id.tvDescProceso);
         tvDireccion = findViewById(R.id.tvDireccionProceso);
@@ -135,7 +135,6 @@ public class IncidenciaProcesoActivity extends AppCompatActivity {
         if ("En proceso".equalsIgnoreCase(estado)) {
             tvEstado.setTextColor(Color.parseColor("#EF6C00")); // Naranja
 
-            // Ocultamos todo lo de calificar
             btnCalificar.setVisibility(View.GONE);
             layoutCalificacionHecha.setVisibility(View.GONE);
 

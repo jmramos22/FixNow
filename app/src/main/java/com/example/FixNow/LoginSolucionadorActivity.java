@@ -69,16 +69,14 @@ public class LoginSolucionadorActivity extends AppCompatActivity {
             return;
         }
 
-        // --- CONEXIÓN CON API ---
         btnIrSolucionador.setEnabled(false);
         btnIrSolucionador.setText("Verificando...");
 
-        // 1. Crear objeto con credenciales
+
         Solucionador credenciales = new Solucionador();
-        credenciales.setMail(email);       // Asegúrate de tener Setters en Solucionador.java
+        credenciales.setMail(email);
         credenciales.setContrasena(password);
 
-        // 2. Enviar a Retrofit
         RetrofitClient.getApiService().loginSolucionador(credenciales).enqueue(new Callback<ApiResponse<Solucionador>>() {
             @Override
             public void onResponse(Call<ApiResponse<Solucionador>> call, Response<ApiResponse<Solucionador>> response) {
@@ -123,8 +121,6 @@ public class LoginSolucionadorActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("sesion", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
-        // Nota: idSolucionador es primitivo int en el nuevo modelo Java,
-        // pero validamos > 0 por si acaso.
         if (solucionador.getIdSolucionador() > 0) {
             editor.putInt("idSolucionador", solucionador.getIdSolucionador());
         }
@@ -132,7 +128,6 @@ public class LoginSolucionadorActivity extends AppCompatActivity {
         editor.putString("nombreSolucionador", solucionador.getNombre() != null ? solucionador.getNombre() : "");
         editor.putString("mailSolucionador", solucionador.getMail() != null ? solucionador.getMail() : "");
 
-        // Guardamos bandera para saber que es SOLUCIONADOR (útil para lógica futura)
         editor.putBoolean("esSolucionador", true);
 
         editor.apply();

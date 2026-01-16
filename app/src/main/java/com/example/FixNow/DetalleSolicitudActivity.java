@@ -78,8 +78,6 @@ public class DetalleSolicitudActivity extends AppCompatActivity {
         rvOfertas.setAdapter(ofertaAdapter);
     }
 
-    // --- 1. CARGAR DATOS DE LA INCIDENCIA (Retrofit) ---
-    // VERSIÓN LIMPIA (Usar solo si agregaste el código PHP de arriba)
     private void cargarDatosDeApi(int id) {
         RetrofitClient.getApiService().obtenerIncidencia(id).enqueue(new Callback<ApiResponse<Incidencia>>() {
             @Override
@@ -106,12 +104,11 @@ public class DetalleSolicitudActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Oferta> listaOfertas = response.body().getData();
 
-                    // Actualizamos el adaptador
+
                     ofertaAdapter.setDatos(listaOfertas);
 
                     if (listaOfertas == null || listaOfertas.isEmpty()) {
-                        // Opcional: Mostrar mensaje de "No hay ofertas aún"
-                        // Toast.makeText(DetalleIncidencia.this, "Sin ofertas aún", Toast.LENGTH_SHORT).show();
+
                     }
                 }
             }

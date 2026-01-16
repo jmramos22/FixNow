@@ -63,7 +63,7 @@ public class OrdenOfertaActivity extends AppCompatActivity {
 
         if (idSolucionadorActual == -1) {
             Toast.makeText(this, "Error de sesión: ID Solucionador no encontrado.", Toast.LENGTH_LONG).show();
-            finish(); // Cerramos porque no puede ofertar sin ID
+            finish();
         }
     }
 
@@ -73,8 +73,6 @@ public class OrdenOfertaActivity extends AppCompatActivity {
 
             if (idIncidenciaActual != -1) {
 
-                // Usamos el "Truco de Filtrado" para asegurar que funcione sin cambios extra en PHP
-                // (Descarga todas y busca la que coincida con el ID)
                 RetrofitClient.getApiService().listarIncidencias().enqueue(new Callback<ApiResponse<List<Incidencia>>>() {
                     @Override
                     public void onResponse(Call<ApiResponse<List<Incidencia>>> call, Response<ApiResponse<List<Incidencia>>> response) {
@@ -139,12 +137,10 @@ public class OrdenOfertaActivity extends AppCompatActivity {
         // 1. Crear Objeto Oferta
         Oferta nuevaOferta = new Oferta();
         nuevaOferta.setMensaje(mensaje);
-        // El estado "Enviada" lo pone el PHP o constructor, pero podemos mandarlo
         nuevaOferta.setEstado("Enviada");
         nuevaOferta.setIdIncidencia(idIncidenciaActual);
         nuevaOferta.setIdSolucionador(idSolucionadorActual);
 
-        // 2. Enviar a la API
         RetrofitClient.getApiService().crearOferta(nuevaOferta).enqueue(new Callback<ApiResponse<Void>>() {
             @Override
             public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {

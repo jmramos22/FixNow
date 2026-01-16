@@ -70,10 +70,9 @@ public class RevisarOfertaActivity extends AppCompatActivity {
         btnAceptar.setEnabled(false);
         btnAceptar.setText("Procesando...");
 
-        // 1. Crear objeto Orden (Solo ID Incidencia y ID Solucionador)
+
         OrdenTrabajo nuevaOrden = new OrdenTrabajo(idIncidencia, idSolucionador);
 
-        // 2. Llamar a la API
         RetrofitClient.getApiService().crearOrdenTrabajo(nuevaOrden).enqueue(new Callback<ApiResponse<Void>>() {
             @Override
             public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {
@@ -82,7 +81,6 @@ public class RevisarOfertaActivity extends AppCompatActivity {
 
                         Toast.makeText(RevisarOfertaActivity.this, "¡Trabajo Asignado! Oferta procesada.", Toast.LENGTH_LONG).show();
 
-                        // Volver al Dashboard (Debería salir 'En proceso')
                         Intent intent = new Intent(RevisarOfertaActivity.this, MisIncidenciasActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);

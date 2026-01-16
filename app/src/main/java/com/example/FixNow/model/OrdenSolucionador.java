@@ -7,7 +7,7 @@ public class OrdenSolucionador implements Serializable {
     @SerializedName("id_orden")
     private int idOrden;
 
-    @SerializedName("id_incidencia") // ¡VITAL! Para saber cuál finalizar
+    @SerializedName("id_incidencia")
     private int idIncidencia;
 
     @SerializedName("status")

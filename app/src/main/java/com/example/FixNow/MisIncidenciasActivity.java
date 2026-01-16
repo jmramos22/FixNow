@@ -44,7 +44,7 @@ public class MisIncidenciasActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        cargarDatosApi(); // Cambiado a método de API
+        cargarDatosApi();
     }
 
     private void initView() {
@@ -65,19 +65,18 @@ public class MisIncidenciasActivity extends AppCompatActivity {
             public void onItemClick(Incidencia incidencia) {
                 int idToSend = (incidencia.getId() != 0) ? incidencia.getId() : -1;
 
-                // Usamos una variable temporal para el estado, asegurando que no sea null
+
                 String status = (incidencia.getStatus() != null) ? incidencia.getStatus() : "Abierta";
 
                 Intent intent;
 
-                // --- LÓGICA CORREGIDA ---
 
-                // CASO A: Aún estamos buscando técnico (Ver Ofertas)
+
+
                 if ("Abierta".equalsIgnoreCase(status)) {
                     intent = new Intent(MisIncidenciasActivity.this, DetalleSolicitudActivity.class);
                 }
-                // CASO B: Ya tenemos técnico o ya acabó (Ver Seguimiento/Calificación)
-                // Esto abarca: "En proceso", "Resuelta" y "Finalizada"
+
                 else {
                     intent = new Intent(MisIncidenciasActivity.this, IncidenciaProcesoActivity.class);
                 }
@@ -91,7 +90,7 @@ public class MisIncidenciasActivity extends AppCompatActivity {
     }
 
     private void cargarDatosApi() {
-        // 1. Obtener ID del cliente logueado
+
         SharedPreferences sp = getSharedPreferences("sesion", MODE_PRIVATE);
         int idClienteLogueado = sp.getInt("idCliente", 0);
 
@@ -100,7 +99,7 @@ public class MisIncidenciasActivity extends AppCompatActivity {
             return;
         }
 
-        // 2. Llamar a la API PHP
+
         RetrofitClient.getApiService().listarIncidencias().enqueue(new Callback<ApiResponse<List<Incidencia>>>() {
             @Override
             public void onResponse(Call<ApiResponse<List<Incidencia>>> call, Response<ApiResponse<List<Incidencia>>> response) {
@@ -108,8 +107,7 @@ public class MisIncidenciasActivity extends AppCompatActivity {
                     List<Incidencia> todasLasIncidencias = response.body().getData();
 
                     if (todasLasIncidencias != null) {
-                        // 3. FILTRADO LOCAL:
-                        // Como la API trae todas, filtramos aquí solo las de este cliente
+
                         List<Incidencia> misIncidencias = new ArrayList<>();
                         for (Incidencia inc : todasLasIncidencias) {
                             if (inc.getIdCliente() == idClienteLogueado) {
@@ -121,7 +119,6 @@ public class MisIncidenciasActivity extends AppCompatActivity {
                             Toast.makeText(MisIncidenciasActivity.this, "No tienes incidencias registradas", Toast.LENGTH_SHORT).show();
                         }
 
-                        // Actualizamos el RecyclerView
                         adapter.setDatos(misIncidencias);
                     }
                 } else {

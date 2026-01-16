@@ -34,7 +34,6 @@ public class MainSolucionadorActivity extends AppCompatActivity {
             return;
         }
 
-        // 2. Vincular vistas
         tvSaludo = findViewById(R.id.tvFuncionaID);
         btCerrar = findViewById(R.id.CerrarS);
         irOr = findViewById(R.id.IrOr);

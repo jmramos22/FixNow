@@ -50,7 +50,6 @@ public class ListaIncidenciasAdapter extends RecyclerView.Adapter<ListaIncidenci
         String titulo = incidencia.getTitulo();
         String status = incidencia.getStatus();
 
-        // Corrección: Usamos getNombreCliente() (CamelCase)
         String cliente = "Cliente: " + (incidencia.getNombreCliente() != null ? incidencia.getNombreCliente() : "Desconocido");
 
         if (titulo == null) titulo = "Sin título";
@@ -61,7 +60,7 @@ public class ListaIncidenciasAdapter extends RecyclerView.Adapter<ListaIncidenci
         holder.tvCliente.setText(cliente);
 
         holder.itemView.setOnClickListener(v -> {
-            // Corrección: Validamos ID diferente de 0 (los primitivos int no son null)
+
             if (incidencia.getId() != 0 && listener != null) {
                 listener.onItemClick(incidencia.getId());
             }

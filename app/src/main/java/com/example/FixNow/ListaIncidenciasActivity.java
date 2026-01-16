@@ -36,7 +36,7 @@ public class ListaIncidenciasActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_incidencias);
 
-        // 1. Inicializar Vistas
+
         progressBar = findViewById(R.id.progressBar);
         recyclerView = findViewById(R.id.rvIncidencias);
 
@@ -45,14 +45,14 @@ public class ListaIncidenciasActivity extends AppCompatActivity
         adapter = new ListaIncidenciasAdapter(this, this);
         recyclerView.setAdapter(adapter);
 
-        // 2. Cargar datos
+
         cargarIncidenciasApi();
     }
 
     private void cargarIncidenciasApi() {
         progressBar.setVisibility(View.VISIBLE);
 
-        // Llamamos a la API para traer TODAS
+
         RetrofitClient.getApiService().listarIncidencias().enqueue(new Callback<ApiResponse<List<Incidencia>>>() {
             @Override
             public void onResponse(Call<ApiResponse<List<Incidencia>>> call, Response<ApiResponse<List<Incidencia>>> response) {
@@ -62,8 +62,7 @@ public class ListaIncidenciasActivity extends AppCompatActivity
                     List<Incidencia> todas = response.body().getData();
 
                     if (todas != null) {
-                        // --- FILTRADO LOCAL ---
-                        // Solo mostramos las que están "Abierta"
+
                         List<Incidencia> soloAbiertas = new ArrayList<>();
                         for (Incidencia inc : todas) {
                             if ("Abierta".equalsIgnoreCase(inc.getStatus())) {
@@ -93,7 +92,7 @@ public class ListaIncidenciasActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(int idIncidencia) {
-        // Al dar clic, vamos a la pantalla de crear oferta
+
         Intent intent = new Intent(ListaIncidenciasActivity.this, OrdenOfertaActivity.class);
         intent.putExtra("INCIDENCIA_ID", idIncidencia);
         startActivity(intent);

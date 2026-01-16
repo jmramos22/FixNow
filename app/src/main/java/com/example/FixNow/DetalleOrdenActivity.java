@@ -32,22 +32,20 @@ public class DetalleOrdenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_orden);
 
-        // 1. Recibir IDs del Intent (Solo necesitamos estos dos)
+
         idOrden = getIntent().getIntExtra("ID_ORDEN", -1);
         idIncidencia = getIntent().getIntExtra("ID_INCIDENCIA", -1);
 
-        // 2. Vincular Vistas (Usando tus IDs originales)
         tvTitulo = findViewById(R.id.tvDetalleTitulo);
         tvDescripcion = findViewById(R.id.tvDetalleDescripcion);
         tvTipo = findViewById(R.id.tvDetalleTipo);
         tvDireccion = findViewById(R.id.tvDetalleDireccion);
-        tvCliente = findViewById(R.id.tvDetalleCliente); // Asegúrate de que este ID exista en tu XML
+        tvCliente = findViewById(R.id.tvDetalleCliente);
         btnFinalizar = findViewById(R.id.btnFinalizarOrden);
 
-        // 3. Configurar Botón
+
         btnFinalizar.setOnClickListener(v -> finalizarTrabajo());
 
-        // 4. Cargar datos frescos de la BD
         if (idIncidencia != -1) {
             cargarDetalles();
         } else {
@@ -57,7 +55,7 @@ public class DetalleOrdenActivity extends AppCompatActivity {
     }
 
     private void cargarDetalles() {
-        // Reutilizamos el endpoint de 'obtenerIncidencia' para llenar la pantalla
+
         RetrofitClient.getApiService().obtenerIncidencia(idIncidencia).enqueue(new Callback<ApiResponse<Incidencia>>() {
             @Override
             public void onResponse(Call<ApiResponse<Incidencia>> call, Response<ApiResponse<Incidencia>> response) {
@@ -70,19 +68,18 @@ public class DetalleOrdenActivity extends AppCompatActivity {
                         tvTipo.setText(inc.getTipo());
                         tvDireccion.setText("Dirección: " + inc.getDireccion());
 
-                        // Si tu modelo Incidencia tiene nombreCliente, úsalo. Si no, pon "Cliente"
+
                         String nombreC = (inc.getNombreCliente() != null) ? inc.getNombreCliente() : "Cliente";
                         tvCliente.setText("Abierta por: " + nombreC);
 
-                        // --- LÓGICA VITAL DEL BOTÓN ---
                         String estado = inc.getStatus();
 
-                        // Si ya está finalizada o resuelta, ocultamos el botón
+
                         if ("Finalizada".equalsIgnoreCase(estado) || "Resuelta".equalsIgnoreCase(estado)) {
                             btnFinalizar.setVisibility(View.GONE);
-                            // Opcional: Mostrar un texto que diga "Completado"
+
                         } else {
-                            // Si está "En proceso", mostramos el botón
+
                             btnFinalizar.setVisibility(View.VISIBLE);
                         }
                     }
@@ -105,10 +102,10 @@ public class DetalleOrdenActivity extends AppCompatActivity {
         btnFinalizar.setEnabled(false);
         btnFinalizar.setText("Finalizando...");
 
-        // Preparamos la petición
+
         FinalizarRequest req = new FinalizarRequest(idOrden, idIncidencia);
 
-        // Llamamos a la API
+
         RetrofitClient.getApiService().finalizarTrabajo(req).enqueue(new Callback<ApiResponse<Void>>() {
             @Override
             public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {

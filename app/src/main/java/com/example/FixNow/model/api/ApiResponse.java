@@ -2,7 +2,7 @@ package com.example.FixNow.model.api;
 
 import com.google.gson.annotations.SerializedName;
 
-// Esta clase sirve para leer LO QUE SEA que responda tu PHP
+// Esta clase sirve para leer LO QUE SEA que responda  PHP
 public class ApiResponse<T> {
 
     @SerializedName("status")

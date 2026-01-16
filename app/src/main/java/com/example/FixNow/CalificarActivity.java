@@ -15,6 +15,7 @@ import com.example.FixNow.model.api.ApiResponse;
 import com.example.FixNow.model.OrdenTrabajo;
 import com.example.FixNow.network.RetrofitClient;
 
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,16 +33,14 @@ public class CalificarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calificar);
 
-        // 1. Recuperar datos del Intent
         idIncidencia = getIntent().getIntExtra("ID_INCIDENCIA", -1);
         nombreTecnico = getIntent().getStringExtra("NOMBRE_TECNICO");
 
-        // 2. Vincular Vistas (Con tus IDs originales)
         ratingBar = findViewById(R.id.rbProviderRating);
         btnEnviar = findViewById(R.id.button2);
         tvTecnico = findViewById(R.id.textView4);
 
-        // 3. Mostrar Nombre
+
         if(nombreTecnico != null && !nombreTecnico.isEmpty()) {
             tvTecnico.setText(nombreTecnico);
         } else {
@@ -62,15 +61,12 @@ public class CalificarActivity extends AppCompatActivity {
         btnEnviar.setEnabled(false);
         btnEnviar.setText("Enviando...");
 
-        // 4. Preparar el objeto para enviar a PHP
-        // El constructor pide (idIncidencia, idSolucionador).
-        // Ponemos 0 en solucionador porque para calificar solo necesitamos el idIncidencia.
+
         OrdenTrabajo orden = new OrdenTrabajo(idIncidencia, 0);
 
-        // ¡OJO! Asegúrate de haber agregado el setter en OrdenTrabajo.java como te dije antes
         orden.setCalificacion(estrellas);
 
-        // 5. Llamada a la API
+
         RetrofitClient.getApiService().calificarOrden(orden).enqueue(new Callback<ApiResponse<Void>>() {
             @Override
             public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {
@@ -79,7 +75,7 @@ public class CalificarActivity extends AppCompatActivity {
 
                         Toast.makeText(CalificarActivity.this, "¡Gracias por tu opinión!", Toast.LENGTH_SHORT).show();
 
-                        // Volver al Dashboard del Cliente y limpiar pila
+
                         Intent intent = new Intent(CalificarActivity.this, MisIncidenciasActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
@@ -104,6 +100,6 @@ public class CalificarActivity extends AppCompatActivity {
     private void restaurarBoton(String mensaje) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
         btnEnviar.setEnabled(true);
-        btnEnviar.setText("Enviar"); // O el texto original que tenga tu botón
+        btnEnviar.setText("Enviar");
     }
 }

@@ -55,7 +55,6 @@ public class NuevaIncidenciaActivity extends AppCompatActivity {
             return;
         }
 
-        // 2. Recuperamos datos del formulario
         String titulo = etTitulo.getText().toString().trim();
         String descripcion = etDescripcion.getText().toString().trim();
         String direccion = etDireccion.getText().toString().trim();
@@ -75,13 +74,12 @@ public class NuevaIncidenciaActivity extends AppCompatActivity {
             return;
         }
 
-        // --- CONEXIÓN CON API ---
 
         // Bloquear botón para evitar doble envío
         btnRegistroIncidencia.setEnabled(false);
         btnRegistroIncidencia.setText("Guardando...");
 
-        // 3. Crear el Objeto Incidencia (Modelo Java)
+
         Incidencia nuevaIncidencia = new Incidencia();
         nuevaIncidencia.setTitulo(titulo);
         nuevaIncidencia.setDescripcion(descripcion);
@@ -89,9 +87,9 @@ public class NuevaIncidenciaActivity extends AppCompatActivity {
         nuevaIncidencia.setDireccion(direccion);
         nuevaIncidencia.setIdCliente(idCliente);
         nuevaIncidencia.setNombreCliente(nombreCliente);
-        // El status se pone por defecto en 'Abierta' en el servidor o constructor
 
-        // 4. Enviar a PHP
+
+        // Enviar a PHP
         RetrofitClient.getApiService().crearIncidencia(nuevaIncidencia).enqueue(new Callback<ApiResponse<Void>>() {
             @Override
             public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {

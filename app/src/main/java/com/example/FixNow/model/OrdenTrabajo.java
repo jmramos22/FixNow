@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 public class OrdenTrabajo implements Serializable {
 
-    // ¡IMPORTANTE! Estas etiquetas son obligatorias para que PHP entienda
     @SerializedName("id_incidencia")
     private int idIncidencia;
 

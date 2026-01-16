@@ -35,8 +35,7 @@ public class OrdenTrabajoAdapter extends RecyclerView.Adapter<OrdenTrabajoAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Usamos tu layout existente 'item_incidencia_abierta' o similar
-        // Asegúrate que tenga los IDs que usamos abajo
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_incidencia_abierta, parent, false);
         return new ViewHolder(view);
     }
@@ -50,7 +49,7 @@ public class OrdenTrabajoAdapter extends RecyclerView.Adapter<OrdenTrabajoAdapte
         String estado = orden.getStatus();
         holder.tvEstado.setText(estado);
 
-        // Lógica visual de colores
+
         if ("En proceso".equalsIgnoreCase(estado)) {
             // Naranja
             holder.tvEstado.setTextColor(Color.parseColor("#EF6C00"));
@@ -78,7 +77,6 @@ public class OrdenTrabajoAdapter extends RecyclerView.Adapter<OrdenTrabajoAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Ajusta estos R.id a como se llamen en tu XML 'item_incidencia_abierta'
             tvTitulo = itemView.findViewById(R.id.tvTitulo);
             tvEstado = itemView.findViewById(R.id.tvBadgeNueva);
         }

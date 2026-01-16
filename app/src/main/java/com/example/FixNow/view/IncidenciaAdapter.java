@@ -55,8 +55,6 @@ public class IncidenciaAdapter extends RecyclerView.Adapter<IncidenciaAdapter.In
         String status = (incidencia.getStatus() != null) ? incidencia.getStatus() : "Desconocido";
         holder.tvEstado.setText(status);
 
-        // --- CORRECCIÓN AQUÍ ---
-        // Ya no usamos GradientDrawable. Usamos setCardBackgroundColor directamente.
 
         if (status.equalsIgnoreCase("Abierta") || status.contains("Ofertas")) {
             // Azulito
@@ -90,14 +88,13 @@ public class IncidenciaAdapter extends RecyclerView.Adapter<IncidenciaAdapter.In
 
     public static class IncidenciaViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitulo, tvEstado;
-        CardView cardStatus; // Agregamos la referencia al CardView
+        CardView cardStatus;
 
         public IncidenciaViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitulo = itemView.findViewById(R.id.tvTituloIncidencia);
             tvEstado = itemView.findViewById(R.id.tvEstadoBadge);
 
-            // Buscamos el CardView por su ID en el XML que me pasaste
             cardStatus = itemView.findViewById(R.id.cardStatus);
         }
     }
