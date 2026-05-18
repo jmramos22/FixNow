@@ -50,11 +50,31 @@ public class RegistroClienteActivity extends AppCompatActivity {
                 return;
             }
 
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
+                etMail.setError("Ingresa un correo electrónico válido");
+                etMail.requestFocus();
+                return;
+            }
+
             if (!contrasena.equals(contrasenaConf)) {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                 etContrasenaConf.setError("No coincide");
                 return;
             }
+
+            // --- INICIO DE NUEVA VALIDACIÓN DE CONTRASEÑA ---
+            if (contrasena.length() < 8) {
+                etContrasena.setError("Debe tener al menos 8 caracteres");
+                etContrasena.requestFocus();
+                return;
+            }
+
+            if (!contrasena.matches(".*[A-Z].*")) {
+                etContrasena.setError("Debe incluir al menos una letra mayúscula");
+                etContrasena.requestFocus();
+                return;
+            }
+            // --- FIN DE NUEVA VALIDACIÓN ---
 
             saveCliente(nombre, paterno, materno, mail, contrasena);
         });
