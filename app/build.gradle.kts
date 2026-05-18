@@ -65,5 +65,8 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
 
 
+    implementation("com.google.android.gms:play-services-location:21.2.0")
+    implementation("com.mapbox.maps:android:11.2.0")
+
 
 }
