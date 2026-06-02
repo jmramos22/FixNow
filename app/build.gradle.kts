@@ -49,12 +49,13 @@ dependencies {
     implementation(libs.room.common.jvm)
     implementation(libs.room.runtime)
     implementation(libs.core.ktx)
+    implementation(libs.work.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     annotationProcessor(libs.room.compiler)
 
-
+    implementation("androidx.work:work-runtime:2.9.0")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.0")
 
