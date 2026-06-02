@@ -136,6 +136,27 @@ public class LoginClienteActivity extends AppCompatActivity {
         editor.putBoolean("estado", true);
 
         editor.apply();
+
+        // --- NUEVO: Obtener y enviar Token a XAMPP ---
+        com.google.firebase.messaging.FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) return;
+
+                    String token = task.getResult();
+                    Log.d("FCM_TOKEN", "Token Cliente: " + token);
+
+                    // Enviar a XAMPP
+                    com.example.FixNow.model.TokenRequest req = new com.example.FixNow.model.TokenRequest(cliente.getId(), token);
+                    RetrofitClient.getApiService().actualizarTokenCliente(req).enqueue(new Callback<ApiResponse<Void>>() {
+                        @Override
+                        public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {
+                            Log.d("FCM_TOKEN", "Token Cliente guardado en MySQL");
+                        }
+                        @Override
+                        public void onFailure(Call<ApiResponse<Void>> call, Throwable t) {}
+                    });
+                });
+
     }
 
     public void registroCliente(View view) {

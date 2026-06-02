@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "920703691067",
+    "project_id": "fixnow-74770",
+    "storage_bucket": "fixnow-74770.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920703691067:android:a7e353413723532354ef1e",
+        "android_client_info": {
+          "package_name": "com.example.FixNow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFKhLNkdRATdoEZ5F6BCQxGDje6kTj_NM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

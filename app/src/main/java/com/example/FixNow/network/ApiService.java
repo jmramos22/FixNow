@@ -25,6 +25,13 @@ public interface ApiService {
     Call<ApiResponse<Cliente>> loginCliente(@Body Cliente cliente);
 
 
+    @POST("index.php?action=actualizar_token_cliente")
+    Call<ApiResponse<Void>> actualizarTokenCliente(@Body com.example.FixNow.model.TokenRequest request);
+
+    @POST("index.php?action=actualizar_token_solucionador")
+    Call<ApiResponse<Void>> actualizarTokenSolucionador(@Body com.example.FixNow.model.TokenRequest request);
+
+
     // --- INCIDENCIAS ---
 
     @POST("index.php?action=crear_incidencia")

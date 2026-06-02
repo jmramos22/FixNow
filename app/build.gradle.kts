@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     kotlin("plugin.serialization") version "2.2.0"
+    id("com.google.gms.google-services")
 
 
 }
@@ -13,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.pruebasdepuradasxduwu"
+        applicationId = "com.example.FixNow"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -68,6 +69,10 @@ dependencies {
 
     implementation("com.google.android.gms:play-services-location:21.2.0")
     implementation("com.mapbox.maps:android:11.2.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    // Librería específica para Notificaciones Push (FCM)
+    implementation("com.google.firebase:firebase-messaging")
 
 
 }

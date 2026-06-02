@@ -131,7 +131,30 @@ public class LoginSolucionadorActivity extends AppCompatActivity {
         editor.putBoolean("esSolucionador", true);
 
         editor.apply();
+
+
+        // --- NUEVO: Obtener y enviar Token a XAMPP ---
+        com.google.firebase.messaging.FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) return;
+
+                    String token = task.getResult();
+                    Log.d("FCM_TOKEN", "Token Solucionador: " + token);
+
+                    // Enviar a XAMPP
+                    com.example.FixNow.model.TokenRequest req = new com.example.FixNow.model.TokenRequest(solucionador.getIdSolucionador(), token);
+                    RetrofitClient.getApiService().actualizarTokenSolucionador(req).enqueue(new Callback<ApiResponse<Void>>() {
+                        @Override
+                        public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {
+                            Log.d("FCM_TOKEN", "Token Solucionador guardado en MySQL");
+                        }
+                        @Override
+                        public void onFailure(Call<ApiResponse<Void>> call, Throwable t) {}
+                    });
+                });
     }
+
+
 
     public void registroSolucionador(View view) {
         Intent i = new Intent(this, RegistroSolucionadorActivity.class);
